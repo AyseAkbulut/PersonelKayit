@@ -1,0 +1,53 @@
+﻿@model PersonelKayit.Models.Personel
+@{
+    ViewBag.Title = "PersonelCreate";
+}
+
+
+
+@using (Html.BeginForm("PersonelCreate", "Home", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+    <table cellpadding="5">
+        <tr><td></td><td>@ViewBag.LoginError</td></tr>
+        <tr>
+            <td>@Html.Label("Ad") </td>
+            <td>@Html.TextBoxFor(a => a.name, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Soyad") </td>
+            <td>@Html.TextBoxFor(a => a.LastName, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Mail")</td>
+            <td>
+                @Html.TextBoxFor(a => a.email, new { @class = "form-control" })
+            </td>
+            <td>
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+
+            <td>@Html.Label("Telefon")</td>
+            <td>@Html.TextBoxFor(a => a.phone, new { @class = "form-control" })</td>
+            <td>@Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Kaydet" />
+            </td>
+            </tr>
+        <tr>
+            <td></td>
+            <td>
+                @Html.ActionLink("Personel Listesi", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </td>
+        </tr>
+    </table>
+
+}

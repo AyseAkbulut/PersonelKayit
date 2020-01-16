@@ -1,0 +1,37 @@
+﻿@model PersonelKayit.Models.User
+@{
+    ViewBag.Title = "UserCreate";
+}
+
+<span id="ControllerMessage"> @ViewBag.Return </span>
+
+@using (Html.BeginForm("UserCreate", "Home", FormMethod.Post))
+{
+
+    <table style="text-align:center; margin-top:150px;" cellpadding="5">
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+
+            <td>@Html.Label("Ad") </td>
+            <td>@Html.TextBoxFor(a => a.Name, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Soyad") </td>
+            <td>@Html.TextBoxFor(a => a.LastName, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Şifre")</td>
+            <td>@Html.PasswordFor(a => a.Password, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Kaydol" />
+            </td>
+
+
+        </tr>
+    </table>
+}
